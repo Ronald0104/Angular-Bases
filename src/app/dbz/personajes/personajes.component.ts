@@ -9,10 +9,12 @@ import { DbzService } from '../services/dbz.service';
 })
 export class PersonajesComponent {
 
-  @Input() personajes: Personaje[] = [];
-
-  constructor(
-    private dbzService: DbzService
-  ){
+  // @Input() personajes: Personaje[] = [];
+  get personajes() {
+    return this.dbzService.personajes;
+    // const personajesCopia = this.dbzService.personajes;
+    // personajesCopia.push({ nombre: 'Otro', poder: 200});
+    // return personajesCopia;
   }
+  constructor(private dbzService: DbzService){ }
 }
